@@ -1,119 +1,115 @@
-📘 DevOps Assignment – Docker & Linux Basics
-📝 Introduction
+# DevOps Docker Assignment – README
 
-This project demonstrates how to use Docker to run basic Linux commands, build a Docker image, and manage version control using Git and GitHub.
-The assignment reflects real DevOps practices including automation, containerization, and infrastructure understanding.
+## **1. Five DevOps Concepts**
+### **1.1 Continuous Integration (CI)**
+CI is the practice of automatically building and testing code whenever changes are pushed. It helps teams detect issues early.
 
-🚀 1. Five DevOps Concepts
-1️⃣ Continuous Integration (CI)
+### **1.2 Continuous Delivery (CD)**
+CD ensures that code changes are always in a deployable state. It automates packaging and preparing applications for release.
 
-Developers frequently push code to a shared repository, and automated systems test every update to ensure the codebase remains stable.
+### **1.3 Infrastructure as Code (IaC)**
+IaC means defining infrastructure (servers, networks, environments) using code. This brings version control, repeatability, and automation.
 
-2️⃣ Continuous Delivery (CD)
+### **1.4 Containerization**
+Containerization packages an application along with all dependencies in a lightweight container. Docker is the most widely used containerization platform.
 
-After CI passes, the system prepares the application for deployment automatically, ensuring every build is production-ready.
+### **1.5 Version Control Systems (VCS)**
+Git is the most popular VCS used in DevOps. It supports collaboration, branching, merging, and tracking changes.
 
-3️⃣ Containerization (Docker)
+---
 
-Applications along with their dependencies are packaged into portable containers to ensure consistent operation across environments.
+## **2. Steps to Complete This Assignment**
+Below is a clear explanation of how I would complete the assignment along with the Docker and Git commands used.
 
-4️⃣ Infrastructure as Code (IaC)
+---
 
-Infrastructure (servers, networks, configurations) is defined using code files rather than manual steps, increasing speed and reducing mistakes.
+## **Step 1: Create a Project Folder**
+```bash
+mkdir docker-basic-commands
+cd docker-basic-commands
+```
 
-5️⃣ Version Control (Git & GitHub)
+---
 
-Tracks changes in code, supports branching, collaboration, and restores project versions when needed.
+## **Step 2: Create the Dockerfile**
+```bash
+touch Dockerfile
+```
+Add the following content:
+```Dockerfile
+FROM ubuntu:latest
 
-🛠️ 2. Steps to Complete the Assignment
+# Install basic utilities
+RUN apt-get update && \
+    apt-get install -y nano curl tree && \
+    apt-get clean
 
-Below are the exact steps executed in the terminal.
+# Default commands
+CMD ["bash"]
+```
 
-📂 Step 1 — Create Project Directory
-Download
-mkdir docker-devops-assignment
-cd docker-devops-assignment
+---
 
-🐳 Step 2 — Create Dockerfile
-Download
-nano Dockerfile
+## **Step 3: Build the Docker Image**
+```bash
+docker build -t basic-linux-ops .
+```
 
+---
 
-Paste this:
-
-Download
-# Base Linux image
-FROM alpine:latest
-
-# Install essential Linux tools
-RUN apk update && apk add --no-cache bash curl vim
-
-# Start with a shell
-CMD ["/bin/sh"]
-
-
-Save + exit.
-
-📘 Step 3 — Create README.md
-Download
-nano README.md
-
-
-(Paste this entire content.)
-
-🏗️ Step 4 — Build Docker Image
-Download
-docker build -t linux-basic-image .
-
-▶️ Step 5 — Run Docker Container
-Download
-docker run -it linux-basic-image
-
-
-Inside container:
-
-Download
+## **Step 4: Run the Docker Container**
+```bash
+docker run -it basic-linux-ops
+```
+Inside the container, you can run commands like:
+```bash
 ls
 pwd
-uname -a
-echo "Hello DevOps"
+tree
+curl --version
+```
 
+---
 
-Exit:
-
-Download
-exit
-
-🌐 Step 6 — Push Project to GitHub
-Initialize Git
-Download
+## **Step 5: Push Dockerfile to GitHub**
+### Initialize Git
+```bash
 git init
 git add .
-git commit -m "Initial Docker + DevOps assignment"
+git commit -m "Added Dockerfile for basic Linux command operations"
+```
 
-Add GitHub Remote
-Download
-git remote add origin https://github.com/<your-username>/docker-devops-assignment.git
-git branch -M main
+### Connect with GitHub Remote
+```bash
+git remote add origin https://github.com/your-username/docker-basic-commands.git
+```
+
+### Push Code
+```bash
 git push -u origin main
+```
 
-🎯 3. What This Assignment Taught Me
-✔ DevOps
+---
 
-Learned how Docker, Linux, Git, and automation concepts work together.
+## **3. How This Assignment Helps Me Learn DevOps**
+### **DevOps**
+- Teaches automation and toolchain usage.
+- Provides hands-on experience with containerization.
 
-✔ Linux
+### **Linux**
+- Using a Docker container with Ubuntu helps learn Linux commands.
+- Installing packages and running commands strengthens OS-level understanding.
 
-Practiced command-line operations inside a containerized environment.
+### **Git**
+- Learning to initialize repos, commit, push, and manage version control.
+- Reinforces how teams collaborate using Git.
 
-✔ Git
+### **Docker**
+- Teaches image building, running containers, and writing Dockerfiles.
+- Helps understand container lifecycle and image layering.
 
-Understood repository setup, commit workflow, and remote pushes.
+---
 
-✔ Docker
+## **Conclusion**
+This assignment gives practical exposure to Docker, Linux basics, Git workflow, and key DevOps concepts — making it a perfect beginner-friendly DevOps task.
 
-Learned how to create Dockerfiles, build images, and run containers.
-
-📌 Conclusion
-
-This assignment helped me gain foundational hands-on experience across Docker, Linux, Git, and core DevOps principles. The project setup closely resembles real DevOps workflows used in the industry.
